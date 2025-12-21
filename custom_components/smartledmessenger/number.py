@@ -18,10 +18,7 @@ class SmartLedIntensity(CoordinatorEntity, NumberEntity):
         self._entry = entry
         self._attr_native_value = entry.data.get(CONF_INTENSITY, DEFAULT_INTENSITY)
 
-    async def async_set_native_value(self, value: float) -> None:
-        self._attr_native_value = int(value)
-        self._entry.data[CONF_INTENSITY] = int(value)
-        self.async_write_ha_state()
+    
 
 class SmartLedSpeed(CoordinatorEntity, NumberEntity):
     _attr_name = 'Smart Led Speed'
@@ -36,6 +33,22 @@ class SmartLedSpeed(CoordinatorEntity, NumberEntity):
         self._attr_native_value = entry.data.get(CONF_SPEED, DEFAULT_SPEED)
 
     async def async_set_native_value(self, value: float) -> None:
-        self._attr_native_value = int(value)
-        self._entry.data[CONF_SPEED] = int(value)
-        self.async_write_ha_state()
+    self._attr_native_value = int(value)
+    self._entry.data[CONF_SPEED] = int(value)
+
+    # Renvoie le dernier message avec la nouvelle vitesse
+    text_entity = self.hass.states.get("text.smart_led_messenger")
+    if text_entity and text_entity.state:
+        import aiohttp
+        from urllib.parse import quote
+
+        data = self._entry.data
+        message = quote(text_entity.state)
+        url = f"http://{data['ip']}/?message={message}&intensity={data['intensity']}&speed={int(value)}"
+
+        async with aiohttp.ClientSession() as session:
+            await session.get(url)
+
+    self.async_write_ha_state()
+
+
