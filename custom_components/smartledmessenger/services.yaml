@@ -1,24 +1,26 @@
-send_message:
+send:
   name: Envoyer un message
   description: Envoie un message au Smart Led Messenger
   fields:
     message:
+      name: Message
+      description: Texte à afficher
       required: true
       selector:
         text:
     intensity:
+      name: Intensité
+      description: 0 à 15
       required: false
-      default: 5
       selector:
         number:
           min: 0
           max: 15
-          mode: slider
     speed:
+      name: Vitesse
+      description: 10 à 50
       required: false
-      default: 20
       selector:
         number:
           min: 10
           max: 50
-          mode: slider
