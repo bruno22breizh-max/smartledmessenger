@@ -25,3 +25,6 @@ class SmartLedText(CoordinatorEntity, TextEntity):
             await session.get(url)
         self._attr_native_value = value
         self.async_write_ha_state()
+        coordinator.last_message = value
+
+
