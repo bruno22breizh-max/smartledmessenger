@@ -1,10 +1,11 @@
 {
   "domain": "smartledmessenger",
   "name": "Smart Led Messenger",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "documentation": "https://github.com/bruno22breizh-max/smartledmessenger",
   "requirements": [],
   "dependencies": [],
   "codeowners": ["@bruno22breizh-max"],
   "config_flow": true
+
 }
