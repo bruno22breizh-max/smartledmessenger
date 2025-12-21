@@ -1,0 +1,12 @@
+{
+  "name": "Smart Led Messenger",
+  "content_in_root": false,
+  "homeassistant": "2023.6.0",
+  "zip_release": false,
+  "filename": "smartledmessenger",
+  "version": "1.0.0",
+  "description": "Intégration Home Assistant pour Smart Led Messenger avec multi-appareils, presets et contrôle temps réel.",
+  "authors": ["bruno22breizh-max"],
+  "tags": ["smart led", "display", "led", "custom_component"],
+  "url": "https://github.com/bruno22breizh-max/smartledmessenger"
+}
