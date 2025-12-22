@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart LED Messenger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: sans-serif; padding: 10px; background: #f9f9f9; }
+        input, button, select { margin: 5px 0; padding: 5px; width: 100%; }
+    </style>
+</head>
+<body>
+    <h1>Smart LED Messenger</h1>
+    <label>Message:</label>
+    <input type="text" id="message">
+    <label>Intensity (0-15):</label>
+    <input type="number" id="intensity" min="0" max="15" value="10">
+    <label>Speed (10-50):</label>
+    <input type="number" id="speed" min="10" max="50" value="40">
+    <label>Static:</label>
+    <input type="checkbox" id="static">
+    <label>Color:</label>
+    <select id="color">
+        <option value="">None</option>
+        <option value="white">White</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+    </select>
+    <button onclick="sendMessage()">Send</button>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const host = urlParams.get('host');
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+            const intensity = document.getElementById('intensity').value;
+            const speed = document.getElementById('speed').value;
+            const staticFlag = document.getElementById('static').checked ? 1 : 0;
+            const color = document.getElementById('color').value;
+            let url = `http://${host}/?message=${encodeURIComponent(message)}&intensity=${intensity}&speed=${speed}&static=${staticFlag}`;
+            if(color) url += `&color=${color}`;
+            fetch(url).catch(err => alert("Erreur: "+err));
+        }
+    </script>
+</body>
+</html>
