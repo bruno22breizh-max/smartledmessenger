@@ -1,0 +1,2 @@
+"""Smart LED Messenger integration."""
+
