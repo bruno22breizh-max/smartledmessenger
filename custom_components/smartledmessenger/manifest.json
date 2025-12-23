@@ -1,0 +1,9 @@
+{
+  "domain": "smartledmessenger",
+  "name": "Smart LED Messenger",
+  "version": "1.2.0",
+  "documentation": "https://github.com/TON_NOM/smartledmessenger",
+  "requirements": [],
+  "codeowners": ["@TON_NOM"],
+  "iot_class": "local_polling"
+}
