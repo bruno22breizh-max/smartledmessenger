@@ -1,9 +1,12 @@
 {
   "domain": "smartledmessenger",
   "name": "Smart LED Messenger",
-  "version": "1.2.0",
-  "documentation": "https://github.com/TON_NOM/smartledmessenger",
+  "version": "1.3.0",
+  "documentation": "https://github.com/bruno22breizh-max/smartledmessenger",
+  "issue_tracker": "https://github.com/bruno22breizh-max/smartledmessenger/issues",
   "requirements": [],
+  "dependencies": [],
   "codeowners": ["@TON_NOM"],
+  "config_flow": true,
   "iot_class": "local_polling"
 }
