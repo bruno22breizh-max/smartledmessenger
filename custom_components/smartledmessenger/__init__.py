@@ -3,7 +3,7 @@ from homeassistant.config_entries import ConfigEntry
 
 from .const import DOMAIN
 
-PLATFORMS = ["text", "number", "switch", "button", "select"]
+PLATFORMS = ["text", "number", "switch", "button", "sensor"]
 
 async def async_setup(hass: HomeAssistant, config: dict):
     return True
